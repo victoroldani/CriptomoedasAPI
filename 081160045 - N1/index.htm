@@ -21,7 +21,13 @@
                     var Moeda = JSON.parse(xhr.responseText);
                     var nome_da_moedaMIN = document.getElementById('nome_da_moeda').value;
                     var nomeMAI = nome_da_moedaMIN.toUpperCase();
-                    var resultado = Moeda.rates[nomeMAI];
+                    
+                    if (Moeda.rates[nomeMAI]) {
+                        var resultado = Moeda.rates[nomeMAI];    
+                        document.getElementById("HPreco").innerHTML = "Preco da Criptomoeda " + nomeMAI;
+                        document.getElementById("preco").innerHTML = "$" + resultado;
+                    }
+                    else alert('Moeda não encontrada!');
                     
                     document.getElementById("HPreco").innerHTML = "Preco da Criptomoeda " + nomeMAI;
                     document.getElementById("preco").innerHTML = "$" + resultado;
